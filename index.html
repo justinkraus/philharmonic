@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script|Playfair+Display+SC|Bebas+Neue|Lato|Dancing+Script|Bad+Script|Rock+Salt|Charmonman" rel="stylesheet">
+  <style>
+
+    body {
+    margin: 2em auto 4em auto;
+    }
+
+
+    h1{
+    text-align: center;
+    font-family: 'Playfair Display SC';
+    }
+
+    .programHeader{
+      text-align: center;
+      margin-left: 450px;
+      max-width: 1000px;
+      font-family: 'Lato';
+
+    }
+
+    p{
+    text-align: center;
+    }
+
+    .programBox{
+/*    border-right: 5px solid #000;*/
+    max-width: 1000px;
+    max-height: 1000px;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 150px;
+/*    z-index: 1;*/
+    }
+
+    .projDetails1{
+      position: absolute;
+      max-width:275px;
+      margin-left: 350px;
+      word-wrap: break-word;
+      top: 300px;
+      font-size: 60%;
+      color: #ff6961;
+      font-family: 'Rock Salt';
+    }
+
+    .projDetails2{
+      position: absolute;
+      max-width:250px;
+      margin-left: 1300px;
+      word-wrap: break-word;
+      top: 615px;
+      font-size: 60%;
+      color: grey;
+      font-family: 'Rock Salt';
+    }
+
+    .projDetails3{
+      position: absolute;
+      max-width:275px;
+      margin-left: 350px;
+      word-wrap: break-word;
+      top: 800px;
+      font-size: 60%;
+      color: lightgrey;
+      font-family: 'Rock Salt';
+    }
+
+    /*Performance 1*/
+    .performance1Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 250px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      background-color: #ff6961;
+    }
+
+    .performance1BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 250px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance1Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 225px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance1BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 225px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 2*/
+    .performance2Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 350px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      background-color: #ff6961;
+    }
+
+    .performance2BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 350px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance2Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 325px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+    .performance2BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 325px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 3*/
+    .performance3Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 450px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      background-color: #ff6961;
+    }
+
+    .performance3BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 450px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline-block;
+      display: inline;
+      font-family: 'Charmonman';
+      opacity: .6;
+    }
+
+    .performance3Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 425px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance3BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 425px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 4*/
+    .performance4Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 550px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      font-weight: bold;
+      background-color: #ff6961;
+    }
+
+    .performance4BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 550px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance4Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 525px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance4BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 525px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 5*/
+    .performance5Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 650px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      font-weight: bold;
+      background-color: grey;
+    }
+
+    .performance5BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 650px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance5Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 625px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance5BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 625px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 6*/
+    .performance6Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 750px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      font-weight: bold;
+      background-color: grey;
+    }
+
+    .performance6BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 750px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance6Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 725px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance6BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 725px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+    /*Performance 7*/
+    .performance7Left{
+      float: left;
+      width:32%;
+      text-align:left;
+      z-index: 1;
+      position: absolute;
+      top: 850px;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      font-weight: bold;
+      background-color: lightgrey;
+    }
+
+    .performance7BackLeft{
+      float: left;
+      width:32%;
+      text-align:left;
+      position: absolute;
+      top: 850px;
+      color: lightgrey;
+      z-index: -1;
+      display: inline;
+      font-family: 'Charmonman';
+      font-size: 90%;
+      opacity: .6;
+    }
+
+    .performance7Right{
+     float: left;
+     width:30%;
+     text-align:right;
+     z-index: 1;
+     position: absolute;
+     top: 825px;
+     font-family: 'Playfair Display SC';
+     font-size: 140%;
+     font-weight: bold;
+    }
+
+    .performance7BackRight{
+     float: left;
+     width:30%;
+     text-align:right;
+     position: absolute;
+     top: 825px;
+     color: lightgrey;
+     z-index: -1;
+     display: inline;
+     font-family: 'Playfair Display SC';
+     opacity: .6;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="programHeader">
+      <h1>Random Night w/ Phil</h1>
+      <p>Create a randomly generated program for the New York Philharmonic based on weighted performances of individual works. Since 1842, the NY Philharmonic has performed over 13,000 times and featured 6,300 distinct works that have been played a total of 54,000 times. Of these distinct works, the NY Philharmonic heavily favors certain pieces over others: Red denotes works in the most performed category, dark grey second most, and light grey the least; playcounts for each performance are shown in parenthesis. </p>
+      <input name="updateButton" 
+       type="button" 
+       value="Generate Program" 
+       onclick="genData()" />
+    </div>
+        <div class="programBox">
+          <span class="performance1Left"></span>
+          <span class="performance1BackLeft"></span>
+          <span class="performance1Right"></span>
+          <span class="performance1BackRight"></span>
+          <span class="performance2Left"></span>
+          <span class="performance2BackLeft"></span>
+          <span class="performance2Right"></span>
+          <span class="performance2BackRight"></span>
+          <span class="performance3Left"></span>
+          <span class="performance3BackLeft"></span>
+          <span class="performance3Right"></span>
+          <span class="performance3BackRight"></span>
+          <span class="performance4Left"></span>
+          <span class="performance4BackLeft"></span>
+          <span class="performance4Right"></span>
+          <span class="performance4BackRight"></span>
+          <span class="performance5Left"></span>
+          <span class="performance5BackLeft"></span>
+          <span class="performance5Right"></span>
+          <span class="performance5BackRight"></span>
+          <span class="performance6Left"></span>
+          <span class="performance6BackLeft"></span>
+          <span class="performance6Right"></span>
+          <span class="performance6BackRight"></span>
+          <span class="performance7Left"></span>
+          <span class="performance7BackLeft"></span>
+          <span class="performance7Right"></span>
+          <span class="performance7BackRight"></span>
+        </div>
+      <span class="projDetails1">
+        <p>If you're going to see the NY Philharmonic there's a good chance it will feature a selection from one of these works. Of the distinct works the Orchestra has played, less than 5% (285) account for half (27,000) of the 54,000 works performed. </p>
+        <p> This category is dominated by works from Beethoven, Wagner, Mozart, Brahams, and Tchaikovsky.</p>
+      </span>
+      <span class="projDetails2">
+        <p>In addition to featuring more modern works, this category includes heavy contributions from prolific composers such as Bach and Haydn who have a larger overall selection of works included within the Orchestra's performance history.</p>
+      </span>
+      <span class="projDetails3">
+        <p>Over the years the NY Philharmonic has performed a number of special works as one-off performances or low-run features, including pieces by non-traditional composers. The 4708 works in this category comprise 75% of the total distinct works while representing only 18% (9800) of the 54,000 works performed.</p>
+        <p> In this sense the NY Philharmonic programming is very much a story of the 80/20 rule or the law of the vital few.</p>
+      </span>
+  <script src="phil3.js"></script>
+</body>
