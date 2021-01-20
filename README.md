@@ -72,7 +72,7 @@ Illustration of the three quantiles based on number of performances: 1 represent
 
 ## Final visual
 [Final visualization](https://justinkraus.github.io/philharmonic/) overview:
- - D3.js reads a csv of distinct works LINK TO works_quantileall1.csv with one of the three quantiles assigned to each work. 
+ - D3.js reads a csv of [distinct works](https://github.com/justinkraus/philharmonic/blob/master/analysis/04_final_data_for_viz/works_quantile_all1.csv) with a quantile assigned to each work. 
  - On button press, a random selection of these works by quantile is assigned to the colored HTML elements
  - These HTML elements are weighted on how frequently works in that quantile are performed (there are an average of 7 works performed in one Philharmonic program).
  - Assignments overwrite text in an html element as well as continually adding new html elements of all the previous button clicks, gradually filling up the background.
